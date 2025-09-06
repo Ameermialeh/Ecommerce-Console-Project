@@ -8,7 +8,12 @@ namespace Ecommerce.Models
 {
     internal class Emplyee : User
     {
-        public int salary {  get; set; }
+        public static int idcount = 1;
+        public Emplyee() {
+            Id = idcount++;
+        }
+
+        public int Salary {  get; set; }
         public override Role access()
         {
             return Role.Emplyee;

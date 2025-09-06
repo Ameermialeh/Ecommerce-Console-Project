@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,26 +11,30 @@ namespace Ecommerce.Models
     internal class Customer : User
     {
         public static int idcount = 1;
-        public Customer(CustomerType customerType = CustomerType.Normal) 
-        {
-            type = customerType;
-            createAt = DateTime.Now;
-            idcount *= 3352;
-            idcount %= 1800;
-            Id= idcount;
-            orders = new List<Order>();
-        }
-        public string visaInfo { get; set; }    
         
-        DateTime createAt { get; set; }
+        public string VisaInfo { get; set; }    
+        
+        public DateTime CreateAt { get; set; }
 
-        List<Order> orders { get; set; }
+        public List<Order> Orders { get; set; }
 
-        public CustomerType type { get; set; }
+        public CustomerType Type { get; set; }
 
         public override Role access()
         {
             return Role.Customer;
+        }
+
+        public Customer(CustomerType customerType = CustomerType.Normal) 
+        {
+            this.Type = customerType;
+            this.CreateAt = DateTime.Now;
+            idcount *= 3352;
+            idcount %= 1800;
+            Id = idcount;
+            this.Orders = new List<Order>();
+
+
         }
     }
 }

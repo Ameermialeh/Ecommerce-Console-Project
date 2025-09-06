@@ -27,12 +27,12 @@ namespace Ecommerce
     }
     internal class DisCount
     {
-        public static double getdiscount(CustomerType customerType)
+        public static Idiscount getdiscount(CustomerType customerType)
         {
             if (customerType == CustomerType.Normal)
-                return 0.20;
+                return new NormalDiscount();
             else
-                return 0.30;
+                return new VipDiscount();
         }
     }
 }

@@ -11,8 +11,8 @@ namespace Ecommerce.Models
         public static int idcount = 0; 
         public Product(string Name ,double price , int quantity ) { 
             this.Name = Name;
-            this.price = price;
-            this.quantity = quantity;
+            this.Price = price;
+            this.Quantity = quantity;
             this.CreatAt = DateTime.Now;
             Id = ++idcount;
         }
@@ -21,11 +21,11 @@ namespace Ecommerce.Models
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public int quantity { get; set; }
+        public int  Quantity { get; set; }
         public string Description { get; set; }
 
-        public string category { get; set; }
-        public double price { get; set; }
+        public string Category { get; set; }
+        public double Price { get; set; }
 
     }
 }

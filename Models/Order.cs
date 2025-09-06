@@ -8,35 +8,44 @@ namespace Ecommerce.Models
 {
     internal class Order
     {
+        public static int idcount = 0;
         public int Id { get; set; }
-        public string Name { get; set; }
 
         public string Description { get; set; }
 
-        public Customer customer { get; set; }
+        public Customer Customer { get; set; }
 
-        public DateTime crateAt { get; set; }
+        public DateTime CrateAt { get; set; }
 
-        public DateTime updateAt { get; set; }
+        public DateTime UpdateAt { get; set; }
 
-        public List<Product> products { get; set; }
+        public List<Product> Products { get; set; }
         // !!!!!!!
-        
+
         public void getBill()
         {
-            Console.WriteLine($"the Bill for Customer {customer.Name}   : ");
+            Console.WriteLine($"The bill for customer {Customer.Name}   : ");
+
+            var discountType = DisCount.getdiscount(Customer.Type);
             int i = 0;
-            double totalToPay = 0; 
-            foreach (var item in products) 
+            double totalToPay = 0;
+
+            foreach (var item in Products)
             {
-                totalToPay += item.price;
-                Console.WriteLine($"{++i}.Product with name {item.Name} with Id {item.Id} with price {item.price} ");
+                totalToPay += item.Price;
+                Console.WriteLine($"{++i}. Product with name {item.Name} with Id {item.Id} with price {item.Price} ");
             }
-            Console.WriteLine($"Total Price : {totalToPay}");
-            Console.WriteLine($"Your dicount : {DisCount.getdiscount(customer.type)}");
-            Console.WriteLine($"your final  Total after discount is : {totalToPay- totalToPay* DisCount.getdiscount(customer.type)}");
+
+
+            Console.WriteLine($"Total price : {totalToPay}");
+            Console.WriteLine($"Your dicount : {discountType.getdiscount()}");
+            Console.WriteLine($"Your final total after discount is : {totalToPay - totalToPay * discountType.getdiscount()}");
 
         }
 
+        public Order(){
+            Id = ++idcount;
+            CrateAt = DateTime.Now;
+        }
     }
 }
