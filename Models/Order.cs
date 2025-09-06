@@ -46,6 +46,8 @@ namespace Ecommerce.Models
         public Order(){
             Id = ++idcount;
             CrateAt = DateTime.Now;
+            Customer = new Customer();
+            Products = new List<Product>();
         }
     }
 }

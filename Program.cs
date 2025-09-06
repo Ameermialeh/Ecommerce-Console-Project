@@ -9,6 +9,7 @@ namespace Ecommerce
     {
         public static void Menu()
         {
+            Console.WriteLine("\n   Please choose a number\n");
             Console.WriteLine("1. Login as Customer");
             Console.WriteLine("2. Login as Employee");
             Console.WriteLine("3. Create new Customer account");
@@ -16,7 +17,7 @@ namespace Ecommerce
         }
         public static void CustomerMenu()
         {
-            Console.WriteLine("   Please choose a number\n");
+            Console.WriteLine("\n   Please choose a number\n");
             Console.WriteLine("1. Show all Products");
             Console.WriteLine("2. Search by ID for product");
             Console.WriteLine("3. Create new Order ");
@@ -24,7 +25,7 @@ namespace Ecommerce
         }
         public static void EmployeeMenu()
         {
-            Console.WriteLine("   Please choose a number\n");
+            Console.WriteLine("\n   Please choose a number\n");
             Console.WriteLine("1. Show all Orders");
             Console.WriteLine("2. Create new Order for specific customer");
             Console.WriteLine("3. Show all Products");
@@ -112,7 +113,7 @@ namespace Ecommerce
                                 }
                                 else
                                 {
-                                    System.Environment.Exit(1);
+                                    break;
                                 }
                             }
                         }
@@ -266,7 +267,7 @@ namespace Ecommerce
                                 }
                                 else
                                 {
-                                    System.Environment.Exit(1);
+                                    break;
                                 }
                             }
                         }

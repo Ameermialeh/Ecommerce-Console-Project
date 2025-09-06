@@ -11,6 +11,10 @@ namespace Ecommerce.Service
     internal class ProductService
     {
         List<Product> productList;
+        public ProductService()
+        {
+            productList = new List<Product>();
+        }
         public void AddProduct(Product newProduct)
         {
             productList.Add(newProduct);
@@ -61,9 +65,6 @@ namespace Ecommerce.Service
             Console.WriteLine("\n");
         }
 
-        public ProductService()
-        {
-            productList = new List<Product>();
-        }
+
     }
 }
